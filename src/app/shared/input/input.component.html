@@ -1,0 +1,35 @@
+<div class="field">
+  <label>{{label}}</label>
+  <input [formControl]="control" [type]="inputType">
+  <div *ngIf="showErrors()" class="ui pointing red basic label">
+    <p *ngIf="control.errors.required">
+      Value is required
+    </p>
+    <p *ngIf="control.errors.minlength">
+      Value entred is
+      {{control.errors.minlength.actualLength}}
+      Character Long, bit it must at least
+      {{control.errors.minlength.requiredLength}}
+      character
+    </p>
+
+    <p *ngIf="control.errors.maxlength">
+      Value entred is
+      {{control.errors.maxlength.actualLength}}
+      Character Long, bit it can not be longer then
+      {{control.errors.maxlength.requiredLength}}
+      character
+    </p>
+
+    <p *ngIf="control.errors.pattern">
+      Invalid Format
+    </p>
+
+    <p *ngIf="control.errors.nonUniqueUsername">
+      Username is taken
+    </p>
+    <p *ngIf="control.errors.noConnection">
+     can't tell is username is taken
+    </p>
+  </div>
+</div>
